@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Restaurante</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <nav>
+            <ul>
+                <li><a href="#pedidos" class="active">Pedidos</a></li>
+                <li><a href="#carta">Carta</a></li>
+                <li><a href="#promociones">Promociones</a></li>
+            </ul>
+        </nav>
+        <div class="user-icon">👤</div>
+    </header>
+
+    <main>
+        <section id="pedidos">
+            <div id="pendientes">
+                <h2>Pendientes <span id="pendientes-count" class="count">4</span></h2>
+                <div class="order-list" id="pendientes-list"></div>
+            </div>
+            <div id="en-progreso">
+                <h2>En Progreso</h2>
+                <div class="order-list" id="progreso-list"></div>
+            </div>
+            <div id="finalizados">
+                <h2>Finalizados</h2>
+                <div class="order-list" id="finalizados-list"></div>
+            </div>
+        </section>
+
+        <section id="carta" class="hidden">
+            <h2>Carta</h2>
+            <div class="add-item">
+                <button id="add-menu-item">+ Agregar nueva carta</button>
+            </div>
+            <div id="menu-items" class="grid"></div>
+        </section>
+
+        <section id="promociones" class="hidden">
+            <h2>Promociones activas</h2>
+            <div id="active-promotions" class="grid"></div>
+            <div class="add-promotion">
+                <h3>Agregar nueva promoción</h3>
+                <form id="add-promotion-form">
+                    <div>
+                        <label for="promo-image">Subir imagen:</label>
+                        <input type="file" id="promo-image" accept="image/*" required>
+                    </div>
+                    <div>
+                        <label for="promo-title">Título:</label>
+                        <input type="text" id="promo-title" required>
+                    </div>
+                    <div>
+                        <label for="promo-description">Descripción:</label>
+                        <textarea id="promo-description" required></textarea>
+                    </div>
+                    <div>
+                        <label for="promo-category">Categoría:</label>
+                        <select id="promo-category" required>
+                            <option value="pizza">Pizza</option>
+                            <option value="burger">Hamburguesa</option>
+                            <option value="pasta">Pasta</option>
+                            <option value="dessert">Postre</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="checkbox" id="promo-celiac"> Apto para celíaco
+                        </label>
+                        <label>
+                            <input type="checkbox" id="promo-vegan"> Vegano
+                        </label>
+                    </div>
+                    <button type="submit">Agregar a promociones</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <div id="notification" class="notification hidden">
+        ¡Nuevo pedido recibido!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
