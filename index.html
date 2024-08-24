@@ -6,6 +6,15 @@
     <title>Barra de Navegación por Pestañas</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
+<header>
+    <div class="header__elements">
+        <h1>Logo</h1>
+        <img src="./Imgs/user.svg" alt="Logo de usuario">
+    </div>
+
+</header>
+
 <body>
     <div class="tab-navigation">
         <button class="tab-link active" onclick="openTab('pedidos')">Pedidos</button>
@@ -13,20 +22,36 @@
         <button class="tab-link" onclick="openTab('promociones')">Promociones</button>
     </div>
 
-    <div id="pedidos" class="tab-content active">
-        <h2>Pedidos</h2>
-        <p>Aquí puedes ver y gestionar tus pedidos.</p>
-    </div>
+    <section id="pedidos" class="tab-content active">
+        <div class="pedidos__pendientes">
+            <h1>En espera</h1>
+            <div class="pendientes__cards">
 
-    <div id="carta" class="tab-content">
+            </div>
+        </div>
+        <div class="pedidos__espera">
+            <h1>En progreso</h1>
+            <div class="espera__cards">
+
+            </div>
+        </div>
+        <div class="pedidos__finalizados">
+            <h1>Finalizados</h1>
+            <div class="finalizados__cards">
+
+            </div>
+        </div>
+    </section>
+
+    <section id="carta" class="tab-content">
         <h2>Carta</h2>
         <p>Aquí puedes explorar nuestra carta de platos.</p>
-    </div>
+    </section>
 
-    <div id="promociones" class="tab-content">
+    <section id="promociones" class="tab-content">
         <h2>Promociones</h2>
         <p>Aquí puedes ver las promociones del día.</p>
-    </div>
+    </section>
 
     <script src="tabs.js"></script>
 </body>

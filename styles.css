@@ -1,9 +1,33 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #F5F4F4;
+    background-color: #DEE5E5;
     margin: 0;
-    padding: 20px;
+    box-sizing: border-box;
 }
+
+/* Header */
+
+header{
+    display: flex;
+    width: 100%;
+    background-color: #232323;
+    padding: 10px;
+}
+
+.header__elements{
+    color: #DEE5E5;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content:space-between;
+}
+
+.header__elements img{
+    width: 50px;
+}
+
+/* Navegación */
 
 .tab-navigation {
     display: flex;
@@ -22,12 +46,14 @@ body {
 }
 
 .tab-link:hover, .tab-link.active {
+
     background-color: #F2D6AD;
     color: #233D56;
 }
 
 .tab-content {
     display: none;
+    max-width: 1200px;
     padding: 20px;
     border: 1px solid #233D56;
     border-radius: 5px;
@@ -37,6 +63,31 @@ body {
 
 .tab-content.active {
     display: block;
+    margin: 0 auto;
+}
+
+/* Menu Pedidos */
+
+#pedidos.active {
+    display: grid;
+    align-content: center;
+    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    gap: 20px;
+}
+
+.pedidos__pendientes{
+    background-color: red;
+}
+
+.pedidos__espera{
+    background-color: yellow;
+
+}
+
+.pedidos__finalizados{
+    background-color: green;
 }
 
 @keyframes fadeIn {
