@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div>${platosHTML}</div>
             <p>Total: $${pedido.precioTotal.toFixed(2)}</p>
             <div class="buttons">
-                <button class="btn-espera">Mover a Espera</button>
-                <button class="btn-rechazar">Rechazar</button>
+                <button class="btn-rechazar">✕</button>
+                <button class="btn-espera">Iniciar Preparación</button>
             </div>
         `;
 
@@ -51,26 +51,26 @@ document.addEventListener("DOMContentLoaded", () => {
         btnEspera.addEventListener('click', () => {
             if (card.parentElement === pendientesContainer) {
                 // Mover de "En espera" a "En progreso"
-                btnEspera.innerText = 'Mover a Finalizados';
-                btnRechazar.innerText = 'Volver a Pendientes';
+                btnEspera.innerText = 'Finalizar Pedido';
+                btnRechazar.innerText = 'Revertir Pedido';
+                btnRechazar.classList.add('btn-revertir');
                 esperaContainer.appendChild(card);
             } else if (card.parentElement === esperaContainer) {
                 // Mover de "En progreso" a "Finalizados"
-                btnEspera.innerText = 'Mover a En Progreso';
-                btnRechazar.remove(); // Remover el botón "Volver a Pendientes" en finalizados
+                btnEspera.innerText = 'Revertir Pedido';
+                btnEspera.classList.add('btn-revertir');
+                btnRechazar.remove(); // Remover el botón "Revertir Pedido" en finalizados
                 finalizadosContainer.appendChild(card);
             } else if (card.parentElement === finalizadosContainer) {
                 // Mover de "Finalizados" a "En progreso"
-                btnEspera.innerText = 'Mover a Finalizados';
-                const volverPendientesBtn = document.createElement('button');
-                volverPendientesBtn.classList.add('btn-rechazar');
-                volverPendientesBtn.innerText = 'Volver a Pendientes';
-                volverPendientesBtn.addEventListener('click', () => {
-                    btnEspera.innerText = 'Mover a Espera';
-                    btnRechazar.innerText = 'Rechazar';
-                    pendientesContainer.appendChild(card);
-                });
-                card.querySelector('.buttons').appendChild(volverPendientesBtn);
+                btnEspera.innerText = 'Finalizar Pedido';
+                btnRechazar.innerText = 'Revertir Pedido';
+                btnRechazar.classList.remove('btn-revertir');
+
+                // Asegurarse de que los botones estén en el orden correcto
+                card.querySelector('.buttons').append(btnEspera);
+                card.querySelector('.buttons').prepend(btnRechazar);
+
                 esperaContainer.appendChild(card);
             }
         });
@@ -78,8 +78,9 @@ document.addEventListener("DOMContentLoaded", () => {
         btnRechazar.addEventListener('click', () => {
             if (card.parentElement === esperaContainer) {
                 // Mover de "En progreso" a "En espera"
-                btnEspera.innerText = 'Mover a Espera';
-                btnRechazar.innerText = 'Rechazar';
+                btnEspera.innerText = 'Iniciar Preparación';
+                btnRechazar.innerText = '✕';
+                btnRechazar.classList.remove('btn-revertir');
                 pendientesContainer.appendChild(card);
             } else {
                 // Rechazar el pedido (solo si está en "En espera")
