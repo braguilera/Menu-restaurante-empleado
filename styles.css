@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F4F4;
+    margin: 0;
+    padding: 20px;
+}
+
+.tab-navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    background-color: #233D56;
+    color: #F5F4F4;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 5px;
+}
+
+.tab-link:hover, .tab-link.active {
+    background-color: #F2D6AD;
+    color: #233D56;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #233D56;
+    border-radius: 5px;
+    background-color: #F5F4F4;
+    animation: fadeIn 0.5s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
