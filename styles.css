@@ -136,6 +136,15 @@ header{
     margin: -10px;
 }
 
+.espera__cards{
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente línea */
+    gap: 16px; /* Espacio entre las tarjetas */
+    padding: 16px;
+    overflow-y: scroll;
+    justify-content: center;
+}
+
 /* Finalizados */
 
 .pedidos__finalizados{
@@ -157,6 +166,15 @@ header{
     border-top-right-radius: 16px;
     padding-bottom: 6px;
     margin: -10px;
+}
+
+finalizados__cards{
+    display: flex;
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente línea */
+    gap: 16px; /* Espacio entre las tarjetas */
+    padding: 16px;
+    overflow-y: scroll;
+    justify-content: center;
 }
 
 /* Cartas */
