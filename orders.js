@@ -15,9 +15,37 @@ document.addEventListener("DOMContentLoaded", () => {
             fechaHora: "2024-08-24 14:35",
             platos: [
                 { nombre: "Pasta", cantidad: 1 },
-                { nombre: "Sopa", cantidad: 2 }
+                { nombre: "Sopa", cantidad: 2 },
+                { nombre: "Hamburguesa a la plancha", cantidad: 3 },
+                { nombre: "Ensalada", cantidad: 1 }
             ],
-            precioTotal: 18.00
+            precioTotal: 67.00
+        },
+        {
+            mesa: "Mesa 3",
+            fechaHora: "2024-08-24 15:10",
+            platos: [
+                { nombre: "Pizza con pepperoni", cantidad: 1 },
+                { nombre: "Promoción hamburguesas", cantidad: 2 }
+            ],
+            precioTotal: 30.00
+        },{
+            mesa: "Mesa 12",
+            fechaHora: "2024-08-24 15:30",
+            platos: [
+                { nombre: "Ensalada", cantidad: 2 },
+                { nombre: "Cheesecake", cantidad: 1 }
+            ],
+            precioTotal: 35.00
+        }
+        ,{
+            mesa: "Mesa 6",
+            fechaHora: "2024-08-24 15:55",
+            platos: [
+                { nombre: "Pizza", cantidad: 3 },
+                { nombre: "Hamburguesa", cantidad: 1 }
+            ],
+            precioTotal: 55.00
         }
     ];
 
@@ -36,9 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         card.innerHTML = `
             <h3>${pedido.mesa}</h3>
-            <p>${pedido.fechaHora}</p>
-            <div>${platosHTML}</div>
-            <p>Total: $${pedido.precioTotal.toFixed(2)}</p>
+            <p class="card__fecha">${pedido.fechaHora}</p>
+            <div class="card_platos">${platosHTML}</div>
+            <p class="card__total">Total: $${pedido.precioTotal.toFixed(2)}</p>
             <div class="buttons">
                 <button class="btn-rechazar">✕</button>
                 <button class="btn-espera">Iniciar Preparación</button>
