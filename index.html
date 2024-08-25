@@ -1,60 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barra de Navegación por Pestañas</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<header>
-    <div class="header__elements">
-        <h1>Logo</h1>
-        <img src="./Imgs/user.svg" alt="Logo de usuario">
-    </div>
-</header>
-
-<body>
-    <div class="tab-navigation">
-        <button class="tab-link active" onclick="openTab('pedidos')">Pedidos</button>
-        <button class="tab-link" onclick="openTab('carta')">Carta</button>
-        <button class="tab-link" onclick="openTab('promociones')">Promociones</button>
-    </div>
-
-    <section id="pedidos" class="tab-content active">
-        <div class="pedidos__pendientes">
-            <div class="title">
-                <h1>En espera</h1>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Barra de Navegación por Pestañas</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="header__elements">
+                <h1>Logo</h1>
+                <img src="./Imgs/user.svg" alt="Logo de usuario">
             </div>
-            <div class="pendientes__cards"></div>
+        </header>
+
+        <div class="tab-navigation">
+            <button class="tab-link active" onclick="openTab('pedidos')">Pedidos</button>
+            <button class="tab-link" onclick="openTab('carta')">Carta</button>
+            <button class="tab-link" onclick="openTab('promociones')">Promociones</button>
         </div>
-        <div class="pedidos__espera">
-            <div class="title">
-                <h1>En progreso</h1>
+
+        <section id="pedidos" class="tab-content active">
+            <div class="pedidos__pendientes">
+                <div class="title">
+                    <h1>En espera</h1>
+                </div>
+                <div class="pendientes__cards"></div>
             </div>
-
-            <div class="espera__cards"></div>
-        </div>
-        <div class="pedidos__finalizados">
-            <div class="title">
-                <h1>Finalizados</h1>
+            <div class="pedidos__espera">
+                <div class="title">
+                    <h1>En progreso</h1>
+                </div>
+                <div class="espera__cards"></div>
             </div>
+            <div class="pedidos__finalizados">
+                <div class="title">
+                    <h1>Finalizados</h1>
+                </div>
+                <div class="finalizados__cards"></div>
+            </div>
+        </section>
 
-            <div class="finalizados__cards"></div>
-        </div>
-    </section>
+        <section id="carta" class="tab-content">
+            <div class="menu-section">
+                <div class="menu-add-card">
+                    <button id="add-new-plate">
+                        <span>+</span>
+                        Agregar nueva carta
+                    </button>
+                </div>
+                
+                <div class="menu-cards-container">
+                    <!-- Ejemplo de una card de un plato -->
+                    <div class="menu-card">
+                        <img src="image_url.jpg" alt="Nombre del plato" class="menu-card-img">
+                        <div class="menu-card-details">
+                            <h3 class="menu-card-title">Pizza</h3>
+                            <p class="menu-card-description">Descripción del plato.</p>
+                            <p class="menu-card-price">$600.00</p>
+                            <div class="menu-card-buttons">
+                                <button class="menu-card-edit-btn">✎</button>
+                                <button class="menu-card-delete-btn">✕</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Agrega más cards aquí -->
+                </div>
+            </div>
+            
+            <div id="add-plate-popup" class="popup">
+                <div class="popup-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Agregar Nuevo Plato</h2>
+                    <!-- Formulario de agregar plato -->
+                    <form id="add-plate-form">
+                        <label for="plate-image">Subir Imagen:</label>
+                        <input type="file" id="plate-image" name="plate-image" accept="image/*" required>
 
-    <section id="carta" class="tab-content">
-        <h2>Carta</h2>
-        <p>Aca van a ir las cartas con sus funcionalidas</p>
-    </section>
+                        <label for="plate-title">Título:</label>
+                        <input type="text" id="plate-title" name="plate-title" required>
 
-    <section id="promociones" class="tab-content">
-        <h2>Promociones</h2>
-        <p>En esta sección van las promociones y sus funcionalidas</p>
-    </section>
+                        <label for="plate-description">Descripción:</label>
+                        <textarea id="plate-description" name="plate-description" required></textarea>
 
-    <script src="tabs.js"></script>
-    <script src="orders.js"></script>
-</body>
+                        <label for="plate-category">Categoría:</label>
+                        <div class="category-container">
+                            <select id="plate-category" name="plate-category">
+                                <option value="entradas">Entradas</option>
+                                <option value="platos-principales">Platos Principales</option>
+                                <option value="postres">Postres</option>
+                            </select>
+                            <button type="button" id="add-category-btn">Agregar Nueva Categoría</button>
+                            <button type="button" id="remove-category-btn">✕</button>
+                        </div>
+
+                        <label for="new-category">Nueva Categoría:</label>
+                        <input type="text" id="new-category" name="new-category">
+
+                        <label for="plate-celiac">Apto para Celíacos:</label>
+                        <input type="checkbox" id="plate-celiac" name="plate-celiac">
+
+                        <label for="plate-vegan">Apto para Veganos:</label>
+                        <input type="checkbox" id="plate-vegan" name="plate-vegan">
+
+                        <button type="submit" id="submit-plate">Agregar al Menú</button>
+                        <button type="button" id="cancel-btn">Cancelar</button>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="promociones" class="tab-content">
+            <h2>Promociones</h2>
+            <p>En esta sección van las promociones y sus funcionalidades</p>
+        </section>
+
+        <script src="tabs.js"></script>
+        <script src="orders.js"></script>
+        <script src="popup.js"></script>
+    </body>
 </html>
