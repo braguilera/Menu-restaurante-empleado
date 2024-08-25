@@ -59,9 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let platosHTML = '';
         pedido.platos.forEach(plato => {
-            platosHTML += `<p>${plato.nombre} x${plato.cantidad}</p>`;
+            platosHTML += `
+                <div class="card_plato">
+                    <span class="plato__nombre">${plato.nombre}</span>
+                    <span class="plato__cantidad">x${plato.cantidad}</span>
+                </div>`;
         });
-
+    
         card.innerHTML = `
             <h3>${pedido.mesa}</h3>
             <p class="card__fecha">${pedido.fechaHora}</p>
