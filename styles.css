@@ -234,19 +234,6 @@ finalizados__cards{
     color: #233D56;
 }
 
-
-.card .btn-rechazar{
-    width: 30px;
-    height: 30px;
-    border-radius: 50vmax;
-}
-
-.card .btn-revertir{
-    width: auto;
-    height: auto;
-    border-radius: 4px;
-}
-
 /* Animaciones */
 @keyframes fadeIn {
     from { opacity: 0; }
