@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <h3>${pedido.mesa}</h3>
             <p class="card__fecha">${pedido.fechaHora}</p>
             <div class="card_platos">${platosHTML}</div>
-            <p class="card__total">Total: $${pedido.precioTotal.toFixed(2)}</p>
+            <p class="card__total"><b>Total:</b> $${pedido.precioTotal.toFixed(2)}</p>
             <div class="buttons">
                 <button class="btn-rechazar">✕</button>
                 <button class="btn-espera">Iniciar Preparación</button>

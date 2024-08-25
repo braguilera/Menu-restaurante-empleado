@@ -109,6 +109,7 @@ header{
     gap: 16px; /* Espacio entre las tarjetas */
     padding: 16px;
     overflow-y: scroll;
+    justify-content: center;
 }
 
 
@@ -166,16 +167,18 @@ header{
     padding: 15px;
     margin-bottom: 10px;
     background-color: #F5F4F4;
-    width: 150px;
+    width: 350px;
     height: auto;
+    position: relative;
 }
 
 .card__fecha{
     font-style: italic;
     color: #998c8c;
     font-size: 14px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #232323;
+    right: 16px;
+    top: 12px;
+    position: absolute;
 }
 
 .card h3 {
@@ -205,7 +208,7 @@ header{
     color: #F5F4F4;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 .card button:hover {
@@ -213,6 +216,18 @@ header{
     color: #233D56;
 }
 
+
+.card .btn-rechazar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50vmax;
+}
+
+.card .btn-revertir{
+    width: auto;
+    height: auto;
+    border-radius: 4px;
+}
 
 /* Animaciones */
 @keyframes fadeIn {
